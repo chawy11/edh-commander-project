@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 public class RecommendationService {
 
     public double calculateScore(MonoCommander commander, UserAnswers answers) {
-        double score = 50.0; // Score base
+        double score = 50.0;
 
-        // Solo evaluar estilo de juego (50 puntos)
+
         if (answers.getPlayStyle() != null && commander.getEstrategias() != null) {
             String playStyle = answers.getPlayStyle().toLowerCase();
             String strategies = String.join(", ", commander.getEstrategias()).toLowerCase();
