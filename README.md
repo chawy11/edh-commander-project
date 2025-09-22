@@ -1,6 +1,6 @@
-# MTG Commander Finder  (Alpha version)
+# MTG Commander Finder  (Currently in progress)
 
-Sistema de recomendación de comandantes de Magic: The Gathering based en preferencias del usuario.
+Magic: The Gathering commander recommendation system based on user preferences.
 
 ## Stack
 - **Frontend:** Angular 19
@@ -8,6 +8,6 @@ Sistema de recomendación de comandantes de Magic: The Gathering based en prefer
 - **Database:** PostgreSQL
 
 ## Features
-- Test interactivo con 5 preguntas
-- Algoritmo de recomendación con scoring
-- API REST completa
+- Interactive test with 5 questions
+- Recommendation algorithm with scoring
+- Complete REST API
