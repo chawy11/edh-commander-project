@@ -1,0 +1,63 @@
+<div class="quiz-container">
+  <h1>Encuentra tu Commander de MTG</h1>
+
+  <form *ngIf="questions.length > 0" (ngSubmit)="onSubmit()">
+
+
+    <div class="question" *ngIf="questions[0]">
+      <h3>{{ questions[0].questionText }}</h3>
+      <div *ngFor="let answer of questions[0].answerOptions">
+        <input type="radio"
+               name="favoriteColor"
+               [value]="answer.answerText"
+               [(ngModel)]="userAnswers.favoriteColor">
+        <label>{{ answer.answerText }}</label>
+      </div>
+    </div>
+
+
+    <div class="question" *ngIf="questions[1]">
+      <h3>{{ questions[1].questionText }}</h3>
+      <div *ngFor="let answer of questions[1].answerOptions">
+        <input type="radio"
+               name="playStyle"
+               [value]="answer.answerText"
+               [(ngModel)]="userAnswers.playStyle">
+        <label>{{ answer.answerText }}</label>
+      </div>
+    </div>
+
+
+    <div class="question" *ngIf="questions[2]">
+      <h3>{{ questions[2].questionText }}</h3>
+      <div *ngFor="let answer of questions[2].answerOptions">
+        <input type="radio"
+               name="budget"
+               [value]="answer.answerText"
+               [(ngModel)]="userAnswers.budget">
+        <label>{{ answer.answerText }}</label>
+      </div>
+    </div>
+
+    <button type="submit">¡Descubrir mi Commander!</button>
+  </form>
+
+
+  <div *ngIf="showRecommendations && recommendations.length > 0" class="results">
+    <h2>🏆 Tus commanders recomendados:</h2>
+
+    <div *ngFor="let commander of recommendations; let i = index" class="commander-card">
+      <h3>{{ i + 1 }}. {{ commander.comandante }}</h3>
+      <p><strong>Color:</strong> {{ commander.color }}</p>
+      <p><strong>Estrategias:</strong> {{ commander.estrategias.join(', ') }}</p>
+      <p><strong>Puntuación:</strong> {{ commander.score }}/100</p>
+    </div>
+
+    <button (click)="resetQuiz()">Hacer otro quiz</button>
+  </div>
+
+
+  <div *ngIf="showRecommendations && recommendations.length === 0">
+    <p>Calculando recomendaciones...</p>
+  </div>
+</div>
